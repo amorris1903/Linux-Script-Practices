@@ -1,0 +1,23 @@
+#!/bin/bash
+
+ls -lsha | egrep "Downloads|Music|Pictures|Videos" | awk '{print NR, $10, $6}'
+
+echo "Which would you like to backup?"
+
+read input
+        if [ $input -eq 1 ]
+                then
+                        cp -Ru $HOME/Documents/Downloads /Backup/
+        elif [ $input -eq 2 ]
+                then
+                        cp -Ru $HOME/Documents/Music /Backup/
+        elif [ $input -eq 3 ]
+                then
+                        cp -Ru $HOME/Documents/Pictures /Backup/
+        elif [ $input -eq 4 ]
+                then
+                        cp -Ru %HOME/Documents/Videos /Backup/
+                else
+                        echo "thats not an option m8, try again!"
+                                ./backup_script.sh
+        fi
